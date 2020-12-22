@@ -1,21 +1,39 @@
-@import '../../main-styles.scss';
+@import "../../main-styles.scss";
 
 .root {
   display: flex;
   width: 100%;
   position: relative;
 
+  &:hover {
+    .x-icon-button {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
   .x-icon-button {
     position: absolute;
     height: 34px;
     width: 34px;
     border-radius: 50%;
-    background: $dark;
-    background-image: url('../../../assets/delete_icon.svg');
+    background: $red;
+    background-image: url("../../../assets/delete_icon.svg");
     background-repeat: no-repeat;
     background-position: center;
-    right: -17px;
-    top: -17px;
+    right: -17px; // this has to be half of the width
+    top: -17px; // this has to be half of the height
+
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+    transform: scale(0);
+    opacity: 0;
+
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 }
 
@@ -27,13 +45,18 @@
   border-radius: 5px;
   cursor: pointer;
 
+  transition: background-color 0.2s ease-out;
+  &:hover {
+    background-color: darken($light-grey, 5%);
+  }
+
   .description {
     display: flex;
     flex-grow: 1;
     font-size: 18px;
     margin-left: 5px;
 
-    // To vertically center the children elements
+    // Vertically center the children elements
     align-items: center;
   }
 
