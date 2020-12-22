@@ -29,6 +29,12 @@
         font-weight: 900;
         text-transform: uppercase;
       }
+
+      .budget-items {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+      }
     }
 
     .income-column {
